@@ -1,0 +1,336 @@
+[gd_scene load_steps=9 format=3 uid="uid://87e2b53xlk0b"]
+
+[ext_resource type="PackedScene" uid="uid://c4u1tvtiof14t" path="res://Character/character.tscn" id="1_7ofqj"]
+[ext_resource type="PackedScene" uid="uid://bwngpdcc6ap0l" path="res://Game/Level.tscn" id="2_6yfd8"]
+[ext_resource type="Script" path="res://Game/pause_overlay.gd" id="3_ljhbq"]
+[ext_resource type="Texture2D" uid="uid://bh0rgrkhc4k3e" path="res://UI/Key_small.png" id="3_vuxrb"]
+[ext_resource type="Texture2D" uid="uid://c4jjq6dhmv2mf" path="res://UI/Key_long.png" id="4_f4fjm"]
+[ext_resource type="Texture2D" uid="uid://bbudq6hjkstu0" path="res://UI/Key_medium.png" id="6_hg1t8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_v5be6"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_1t353"]
+font_size = 18
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Game" type="Node3D"]
+
+[node name="Character" parent="." instance=ExtResource("1_7ofqj")]
+
+[node name="Level" parent="." instance=ExtResource("2_6yfd8")]
+
+[node name="Env" type="Node" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Env"]
+transform = Transform3D(0.907213, 0.0449943, 0.418258, -0.420672, 0.0970339, 0.902009, 0, -0.994264, 0.106958, 0, 0, 0)
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="Env"]
+transform = Transform3D(0.856402, -0.0552235, -0.513347, 0.435175, 0.612256, 0.660125, 0.277846, -0.788728, 0.54837, 0, 0, 0)
+light_energy = 0.4
+
+[node name="DirectionalLight3D3" type="DirectionalLight3D" parent="Env"]
+transform = Transform3D(0.907213, -0.191367, 0.374625, -0.420672, -0.412698, 0.807908, -1.49012e-08, -0.890539, -0.454908, 0, 0, 0)
+light_energy = 0.3
+
+[node name="Pause Overlay" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("3_ljhbq")
+
+[node name="ColorRect" type="ColorRect" parent="Pause Overlay"]
+custom_minimum_size = Vector2(520, 0)
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1452, 0.16764, 0.22, 0.6)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pause Overlay"]
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -219.0
+offset_right = 219.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Spacer" type="Control" parent="Pause Overlay/VBoxContainer"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+
+[node name="Pause text" type="Label" parent="Pause Overlay/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Pause"
+label_settings = SubResource("LabelSettings_v5be6")
+
+[node name="Spacer2" type="Control" parent="Pause Overlay/VBoxContainer"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Pause Overlay/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="GridContainer" type="GridContainer" parent="Pause Overlay/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="Key1" type="TextureRect" parent="Pause Overlay/VBoxContainer/HBoxContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("3_vuxrb")
+
+[node name="Label" type="Label" parent="Pause Overlay/VBoxContainer/HBoxContainer/GridContainer/Key1"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -38.0
+offset_top = 10.0
+offset_right = 2.0
+offset_bottom = 33.0
+grow_horizontal = 0
+text = "1"
+label_settings = SubResource("LabelSettings_1t353")
+
+[node name="Key2" type="TextureRect" parent="Pause Overlay/VBoxContainer/HBoxContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("3_vuxrb")
+
+[node name="Label" type="Label" parent="Pause Overlay/VBoxContainer/HBoxContainer/GridContainer/Key2"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -38.0
+offset_top = 10.0
+offset_right = 2.0
+offset_bottom = 33.0
+grow_horizontal = 0
+text = "2"
+label_settings = SubResource("LabelSettings_1t353")
+
+[node name="Key3" type="TextureRect" parent="Pause Overlay/VBoxContainer/HBoxContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("3_vuxrb")
+
+[node name="Label" type="Label" parent="Pause Overlay/VBoxContainer/HBoxContainer/GridContainer/Key3"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -38.0
+offset_top = 10.0
+offset_right = 2.0
+offset_bottom = 33.0
+grow_horizontal = 0
+text = "3"
+label_settings = SubResource("LabelSettings_1t353")
+
+[node name="Key4" type="TextureRect" parent="Pause Overlay/VBoxContainer/HBoxContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("3_vuxrb")
+
+[node name="Label" type="Label" parent="Pause Overlay/VBoxContainer/HBoxContainer/GridContainer/Key4"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -38.0
+offset_top = 10.0
+offset_right = 2.0
+offset_bottom = 33.0
+grow_horizontal = 0
+text = "4"
+label_settings = SubResource("LabelSettings_1t353")
+
+[node name="Spacer" type="Control" parent="Pause Overlay/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Pause Overlay/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Selecionar personagem"
+
+[node name="Separator" type="ColorRect" parent="Pause Overlay/VBoxContainer"]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+color = Color(0.184314, 0.439216, 0.529412, 1)
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Pause Overlay/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pause Overlay/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+
+[node name="Key" type="TextureRect" parent="Pause Overlay/VBoxContainer/HBoxContainer4/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("3_vuxrb")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="Pause Overlay/VBoxContainer/HBoxContainer4/VBoxContainer/Key"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -41.0
+offset_top = 10.0
+offset_right = 10.0
+offset_bottom = 36.0
+grow_horizontal = 0
+text = "W"
+label_settings = SubResource("LabelSettings_1t353")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Pause Overlay/VBoxContainer/HBoxContainer4/VBoxContainer"]
+layout_mode = 2
+
+[node name="Key1" type="TextureRect" parent="Pause Overlay/VBoxContainer/HBoxContainer4/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("3_vuxrb")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="Pause Overlay/VBoxContainer/HBoxContainer4/VBoxContainer/HBoxContainer/Key1"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -38.0
+offset_top = 10.0
+offset_right = 13.0
+offset_bottom = 36.0
+grow_horizontal = 0
+text = "A"
+label_settings = SubResource("LabelSettings_1t353")
+
+[node name="Key2" type="TextureRect" parent="Pause Overlay/VBoxContainer/HBoxContainer4/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("3_vuxrb")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="Pause Overlay/VBoxContainer/HBoxContainer4/VBoxContainer/HBoxContainer/Key2"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -38.0
+offset_top = 10.0
+offset_right = 13.0
+offset_bottom = 36.0
+grow_horizontal = 0
+text = "S"
+label_settings = SubResource("LabelSettings_1t353")
+
+[node name="Key3" type="TextureRect" parent="Pause Overlay/VBoxContainer/HBoxContainer4/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("3_vuxrb")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="Pause Overlay/VBoxContainer/HBoxContainer4/VBoxContainer/HBoxContainer/Key3"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -41.0
+offset_top = 10.0
+offset_right = 10.0
+offset_bottom = 36.0
+grow_horizontal = 0
+text = "D"
+label_settings = SubResource("LabelSettings_1t353")
+
+[node name="Spacer" type="Control" parent="Pause Overlay/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Pause Overlay/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(225, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Movimentação"
+
+[node name="Separator2" type="ColorRect" parent="Pause Overlay/VBoxContainer"]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+color = Color(0.184314, 0.439216, 0.529412, 1)
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Pause Overlay/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Key Long" type="TextureRect" parent="Pause Overlay/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("4_f4fjm")
+
+[node name="Label" type="Label" parent="Pause Overlay/VBoxContainer/HBoxContainer2/Key Long"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -88.0
+offset_top = 10.0
+offset_right = -37.0
+offset_bottom = 36.0
+grow_horizontal = 0
+text = "Space"
+label_settings = SubResource("LabelSettings_1t353")
+
+[node name="Spacer" type="Control" parent="Pause Overlay/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Pause Overlay/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(181, 0)
+layout_mode = 2
+text = "Ação especial"
+
+[node name="Separator3" type="ColorRect" parent="Pause Overlay/VBoxContainer"]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+color = Color(0.1855, 0.438133, 0.53, 1)
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Pause Overlay/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Key" type="TextureRect" parent="Pause Overlay/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("6_hg1t8")
+
+[node name="Label" type="Label" parent="Pause Overlay/VBoxContainer/HBoxContainer3/Key"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -80.0
+offset_top = 10.0
+offset_right = -29.0
+offset_bottom = 36.0
+grow_horizontal = 0
+text = "Tab"
+label_settings = SubResource("LabelSettings_1t353")
+
+[node name="Spacer" type="Control" parent="Pause Overlay/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Pause Overlay/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(181, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Pause/Play"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="Pause Overlay" method="_start_paused"]

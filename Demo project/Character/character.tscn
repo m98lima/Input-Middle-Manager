@@ -1,0 +1,323 @@
+[gd_scene load_steps=31 format=3 uid="uid://c4u1tvtiof14t"]
+
+[ext_resource type="Script" path="res://Character/Node Refs.gd" id="1_1pp0g"]
+[ext_resource type="Script" path="res://Character/Player Physics Handler.gd" id="1_6upih"]
+[ext_resource type="Script" path="res://Character/Input Handling/Camera/Camera Handler.gd" id="2_2wt1v"]
+[ext_resource type="PackedScene" uid="uid://ci5w57kx0uq6k" path="res://Character/Amogus test/amogus_2.tscn" id="2_kfmqg"]
+[ext_resource type="PackedScene" uid="uid://dbl23w12rn7nv" path="res://Character/Tank/Tank.blend" id="3_m0xqw"]
+[ext_resource type="PackedScene" uid="uid://b4mqaij6f6ou1" path="res://Character/Moai/Moai.blend" id="4_p54gs"]
+[ext_resource type="PackedScene" uid="uid://4x33rv6hwr72" path="res://Character/Moai/Cursor/Cursor.blend" id="5_fikip"]
+[ext_resource type="PackedScene" uid="uid://b6kk01t64lmpe" path="res://Character/Frog/Frog.tscn" id="5_hr2sc"]
+[ext_resource type="Script" path="res://Character/Moai/Cursor/Cursor_Arrow Handler.gd" id="6_e27od"]
+[ext_resource type="Script" path="res://Character/Input Handling/Input Middle-Manager.gd" id="8_ly7mn"]
+[ext_resource type="Script" path="res://Character/Input Handling/Movement/Moai/Moai Movement.gd" id="14_3t3a0"]
+[ext_resource type="Script" path="res://Character/Input Handling/Handler Capsule.gd" id="14_ndv1x"]
+[ext_resource type="Script" path="res://Character/Input Handling/[class] Input Handler.gd" id="15_u737n"]
+[ext_resource type="Script" path="res://Character/Input Handling/Movement/Amogus/Amogus.gd" id="16_xmbm5"]
+[ext_resource type="Script" path="res://Character/Input Handling/Movement/Tank/Tank Movement.gd" id="17_yx4la"]
+[ext_resource type="Script" path="res://Character/Input Handling/Movement/Frog/Frog Movement.gd" id="18_62hp6"]
+
+[sub_resource type="Resource" id="Resource_08qn1"]
+script = ExtResource("18_62hp6")
+vertical_speed = 8.0
+move_force = 16.0
+deceleration = 0.0
+mesh_name = "Frog"
+
+[sub_resource type="Resource" id="Resource_ge4ql"]
+script = ExtResource("14_3t3a0")
+cursor_speed = 7.0
+mesh_name = "Moai"
+
+[sub_resource type="Resource" id="Resource_cyyqd"]
+script = ExtResource("16_xmbm5")
+move_speed = 17.0
+turning_weight = 6.0
+jump_force = 12.0
+base_gravity = 1.7
+falling_gravity = 3.5
+mesh_name = "Amogus2"
+
+[sub_resource type="Resource" id="Resource_eobtq"]
+script = ExtResource("17_yx4la")
+move_speed = 8.0
+turn_speed = 1.1
+mesh_name = "Tank"
+
+[sub_resource type="Animation" id="Animation_4gyri"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../../Meshes/Moai:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../../Meshes:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../../Meshes/Frog:frog_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5]
+}
+
+[sub_resource type="Animation" id="Animation_ev3u4"]
+resource_name = "Swap meshes"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../../Meshes/Moai:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(0.4, 0.4, 0.4), Vector3(1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../../Meshes:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(0.4, 0.4, 0.4), Vector3(1, 1, 1)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_replace_active_handler"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../../Meshes/Frog:frog_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.5, 0.2, 0.5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xtkp0"]
+_data = {
+"RESET": SubResource("Animation_4gyri"),
+"Swap meshes": SubResource("Animation_ev3u4")
+}
+
+[sub_resource type="Animation" id="Animation_uimj1"]
+resource_name = "Cursor spin"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 3.14159, 0), Vector3(0, 6.28319, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.633333, 1.5, 2.3, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 4.5, 0), Vector3(0, 4.1, 0), Vector3(0, 4.8, 0), Vector3(0, 4.1, 0), Vector3(0, 4.5, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_u4r21"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 4.5, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1jkjo"]
+_data = {
+"Cursor spin": SubResource("Animation_uimj1"),
+"RESET": SubResource("Animation_u4r21")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mvj82"]
+albedo_color = Color(0.62, 0.0496, 0.0591065, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_hetls"]
+material = SubResource("StandardMaterial3D_mvj82")
+top_radius = 1.5
+bottom_radius = 1.5
+height = 0.1
+radial_segments = 12
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5gx0d"]
+size = Vector3(2.28027, 2.28101, 0.358398)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fsngf"]
+
+[node name="Character" type="CharacterBody3D"]
+collision_layer = 2
+script = ExtResource("1_6upih")
+
+[node name="Node Refs" type="Node" parent="." node_paths=PackedStringArray("character_body", "camera_base", "meshes")]
+unique_name_in_owner = true
+script = ExtResource("1_1pp0g")
+character_body = NodePath("..")
+camera_base = NodePath("../Player attachment/Camera Base")
+meshes = NodePath("../Meshes")
+
+[node name="Input Handling" type="Node" parent="."]
+
+[node name="Camera Handler" type="Node" parent="Input Handling"]
+script = ExtResource("2_2wt1v")
+
+[node name="Movement Handler" type="Node" parent="Input Handling"]
+script = ExtResource("8_ly7mn")
+
+[node name="Handler capsule" type="Node" parent="Input Handling/Movement Handler"]
+script = ExtResource("14_ndv1x")
+input_handlers = Array[ExtResource("15_u737n")]([SubResource("Resource_08qn1"), SubResource("Resource_ge4ql"), SubResource("Resource_cyyqd"), SubResource("Resource_eobtq")])
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Input Handling/Movement Handler/Handler capsule"]
+libraries = {
+"": SubResource("AnimationLibrary_xtkp0")
+}
+
+[node name="Meshes" type="Node3D" parent="."]
+
+[node name="Amogus2" parent="Meshes" instance=ExtResource("2_kfmqg")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+
+[node name="Tank" parent="Meshes" instance=ExtResource("3_m0xqw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+visible = false
+
+[node name="Timer" type="Timer" parent="Meshes/Tank"]
+
+[node name="Moai" parent="Meshes" instance=ExtResource("4_p54gs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
+top_level = true
+visible = false
+
+[node name="Cursor" type="Node3D" parent="Meshes/Moai" node_paths=PackedStringArray("mesh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
+top_level = true
+script = ExtResource("6_e27od")
+mesh = NodePath("Cursor/Cube")
+
+[node name="Cursor" parent="Meshes/Moai/Cursor" instance=ExtResource("5_fikip")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Meshes/Moai/Cursor/Cursor"]
+libraries = {
+"": SubResource("AnimationLibrary_1jkjo")
+}
+autoplay = "Cursor spin"
+
+[node name="SpringArm3D" type="SpringArm3D" parent="Meshes/Moai/Cursor"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 4.5, 0)
+spring_length = 15.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Meshes/Moai/Cursor/SpringArm3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_hetls")
+
+[node name="Area3D" type="Area3D" parent="Meshes/Moai/Cursor/SpringArm3D"]
+collision_mask = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Meshes/Moai/Cursor/SpringArm3D/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.320801)
+shape = SubResource("BoxShape3D_5gx0d")
+
+[node name="Frog" parent="Meshes" instance=ExtResource("5_hr2sc")]
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="."]
+remote_path = NodePath("../Player attachment")
+update_rotation = false
+update_scale = false
+
+[node name="Player attachment" type="Node3D" parent="."]
+top_level = true
+
+[node name="Camera Base" type="Node3D" parent="Player attachment"]
+
+[node name="SpringArm3D" type="SpringArm3D" parent="Player attachment/Camera Base"]
+transform = Transform3D(1, 0, 0, 0, 0.954376, 0.298608, 0, -0.298608, 0.954376, 0, 0.432145, 0)
+spring_length = 15.0
+
+[node name="Camera3D" type="Camera3D" parent="Player attachment/Camera Base/SpringArm3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_fsngf")
+
+[connection signal="body_entered" from="Meshes/Moai/Cursor/SpringArm3D/Area3D" to="Meshes/Moai/Cursor" method="_set_unavailable"]
+[connection signal="body_exited" from="Meshes/Moai/Cursor/SpringArm3D/Area3D" to="Meshes/Moai/Cursor" method="_set_available"]
+
+[editable path="Meshes/Moai/Cursor/Cursor"]

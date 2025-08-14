@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=3 uid="uid://bwngpdcc6ap0l"]
+
+[ext_resource type="Texture2D" uid="uid://chwpp86ahkkhg" path="res://Game/Checker texture.png" id="1_k0d4x"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_bu78b"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ve5a"]
+albedo_texture = ExtResource("1_k0d4x")
+uv1_scale = Vector3(10, 10, 10)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5eo2e"]
+material = SubResource("StandardMaterial3D_7ve5a")
+size = Vector2(200, 200)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jnd1g"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_dure5"]
+radius = 1.0
+height = 2.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_j0d52"]
+radius = 1.0
+
+[node name="Level" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_bu78b")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("PlaneMesh_5eo2e")
+
+[node name="Boxes" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Boxes"]
+transform = Transform3D(1.49109, 0, 1.33291, 0, 2, 0, -1.33291, 0, 1.49109, -3.81154, 0.764506, 11.4577)
+mesh = SubResource("BoxMesh_jnd1g")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Boxes"]
+transform = Transform3D(-1.14681, -0.400594, 1.58882, 1.38979, 0.789443, 1.20219, -0.867938, 1.79341, -0.174298, -0.435423, 0.764506, -9.79697)
+mesh = SubResource("BoxMesh_jnd1g")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Boxes"]
+transform = Transform3D(-2.91312, -3.6219, -1.84271, 1.99468, -3.2498, 3.2342, -3.54047, 1.1492, 3.33832, 7.43379, 0.764506, -2.21773)
+mesh = SubResource("BoxMesh_jnd1g")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Boxes"]
+transform = Transform3D(-0.404546, -0.552344, 0.728875, 0.900991, -0.37729, 0.214164, 0.156706, 0.743349, 0.650288, -12.4693, 0.764506, 3.93685)
+mesh = SubResource("BoxMesh_jnd1g")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Boxes"]
+transform = Transform3D(1.15919, 0.644201, 2.69097, 2.30994, -1.8315, -0.556601, 1.52331, 2.28706, -1.2037, -27.9695, 0.764506, -9.87007)
+mesh = SubResource("BoxMesh_jnd1g")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.932, 0, -2.9232)
+collision_layer = 4
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2"]
+mesh = SubResource("SphereMesh_dure5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+shape = SubResource("SphereShape3D_j0d52")

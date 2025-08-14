@@ -1,0 +1,127 @@
+[gd_scene load_steps=6 format=3 uid="uid://ci5w57kx0uq6k"]
+
+[ext_resource type="PackedScene" uid="uid://c75adf0h3b8eb" path="res://Amogus.blend" id="1_pet6u"]
+[ext_resource type="Script" path="res://Character/Amogus test/amogus_2.gd" id="2_7x16c"]
+
+[sub_resource type="Animation" id="Animation_deya6"]
+length = 0.001
+tracks/0/type = "blend_shape"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Amogus:Back.L")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0)
+tracks/1/type = "blend_shape"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Amogus:Back.R")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0)
+tracks/2/type = "blend_shape"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Amogus:Bent.L")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0)
+tracks/3/type = "blend_shape"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Amogus:Bent.R")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 0)
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Amogus:blend_shapes/Forward.R")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Amogus:blend_shapes/Forward.L")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_rkalk"]
+resource_name = "new_animation"
+length = 1.16668
+loop_mode = 1
+step = 0.0833333
+tracks/0/type = "blend_shape"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Amogus:Back.L")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 1, 0.166667, 1, 0, 0.333333, 1, 0, 0.5, 1, 0, 0.666667, 1, 1, 0.833333, 1, 0, 1, 1, 0)
+tracks/1/type = "blend_shape"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Amogus:Back.R")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0.166667, 1, 0, 0.333333, 1, 1, 0.5, 1, 0, 0.666667, 1, 0, 0.833333, 1, 0, 1, 1, 1)
+tracks/2/type = "blend_shape"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Amogus:Bent.L")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0, 0.166667, 1, 1, 0.333333, 1, 0, 0.5, 1, 0, 0.666667, 1, 0, 0.833333, 1, 1, 1, 1, 0)
+tracks/3/type = "blend_shape"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Amogus:Bent.R")
+tracks/3/interp = 0
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 0, 0.166667, 1, 0, 0.333333, 1, 0, 0.5, 1, 1, 0.666667, 1, 0, 0.833333, 1, 0, 1, 1, 0)
+tracks/4/type = "blend_shape"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Amogus:Forward.L")
+tracks/4/interp = 0
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, 0, 0.166667, 1, 0, 0.333333, 1, 1, 0.5, 1, 0, 0.666667, 1, 0, 0.833333, 1, 0, 1, 1, 1)
+tracks/5/type = "blend_shape"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Amogus:Forward.R")
+tracks/5/interp = 0
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, 1, 0.166667, 1, 0, 0.333333, 1, 0, 0.5, 1, 0, 0.666667, 1, 1, 0.833333, 1, 0, 1, 1, 0)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e8q0p"]
+_data = {
+"RESET": SubResource("Animation_deya6"),
+"Walk": SubResource("Animation_rkalk")
+}
+
+[node name="Amogus2" instance=ExtResource("1_pet6u")]
+script = ExtResource("2_7x16c")
+
+[node name="Cube" parent="." index="0"]
+visible = false
+
+[node name="Amogus_001" parent="." index="1"]
+visible = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+libraries = {
+"": SubResource("AnimationLibrary_e8q0p")
+}
