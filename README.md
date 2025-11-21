@@ -14,6 +14,10 @@ O Input Middle-Manager não gera nenhum código nem decide por conta própria qu
 
 Caso queira ler o código do Input Middle-Manager, vá para a pasta "IM-M scripts" acima ou clique [aqui](https://github.com/m98lima/Input-Middle-Manager/tree/main/IM-M%20scripts)
 
+## Pesquisa de validação
+
+Durante este trabalho, foi realizada uma pesquisa de validação sobre o IM-M com um pequeno grupo de 5 pessoas, os resultados podem ser visualizados em um documento PDF acessando a pasta "[Resultados] Pesquisa de validação" ou clicando [aqui](https://github.com/m98lima/Input-Middle-Manager/blob/main/%5BResultados%5D%20Pesquisa%20de%20valida%C3%A7%C3%A3o/%5BResultado%5D%20Valida%C3%A7%C3%A3o%20-%20Input%20Middle-Manager.pdf). Os mesmos resultados também estão disponíveis em uma [planilha de visualização pública](https://docs.google.com/spreadsheets/d/1T3xBBGQ0b5uv7iCg0I3bySmtvp0UeDm_tZXIhZsQhE8/).
+
 ## Demo jogável
 
 https://m98lima.itch.io/input-middle-manager-demo
